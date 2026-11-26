@@ -444,7 +444,7 @@
       }
 
       // Mode 2: Standalone HTML (Netlify / GitHub Pages) -> Fetch ke GAS Web App URL
-      if (!APP_CONFIG.GAS_WEB_APP_URL || APP_CONFIG.GAS_WEB_APP_URL.includes("PASTE_URL_WEB_APP")) {
+      if (!APP_CONFIG.GAS_WEB_APP_URL || APP_CONFIG.GAS_WEB_APP_URL.includes("https://script.google.com/macros/s/AKfycbz17WkR7wHmZayaeJdQfBbEOmAwRl_VwHs8OggrE1kTJDYYh4Vr7Yb4sWiPJYrbsDLU/exec")) {
         throw new Error("URL Web App Google Apps Script belum dipasang di APP_CONFIG.GAS_WEB_APP_URL.");
       }
 
