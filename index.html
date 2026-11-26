@@ -294,7 +294,7 @@
   <script>
     /**
      * ============================================================================
-     * KONFIGURASI UTAMA (Tempel URL Web App Google Apps Script di sini)
+     * KONFIGURASI UTAMA
      * ============================================================================
      */
     const APP_CONFIG = {
@@ -399,7 +399,6 @@
     // ==================== SUBMIT & KOMUNIKASI KE GAS ====================
     const checkInForm = document.getElementById("checkInForm");
     const submitBtn = document.getElementById("submitBtn");
-    const submitBtnText = document.getElementById("submitBtnText");
     const errorAlert = document.getElementById("errorAlert");
     const errorAlertText = document.getElementById("errorAlertText");
 
@@ -444,13 +443,14 @@
       }
 
       // Mode 2: Standalone HTML (Netlify / GitHub Pages) -> Fetch ke GAS Web App URL
-      if (!APP_CONFIG.GAS_WEB_APP_URL || APP_CONFIG.GAS_WEB_APP_URL.includes("https://script.google.com/macros/s/AKfycbz17WkR7wHmZayaeJdQfBbEOmAwRl_VwHs8OggrE1kTJDYYh4Vr7Yb4sWiPJYrbsDLU/exec")) {
+      if (!APP_CONFIG.GAS_WEB_APP_URL || APP_CONFIG.GAS_WEB_APP_URL.includes("PASTE_URL_WEB_APP")) {
         throw new Error("URL Web App Google Apps Script belum dipasang di APP_CONFIG.GAS_WEB_APP_URL.");
       }
 
       // Gunakan text/plain agar browser tidak mengirim CORS OPTIONS preflight ke GAS
       const response = await fetch(APP_CONFIG.GAS_WEB_APP_URL, {
         method: "POST",
+        redirect: "follow",
         headers: {
           "Content-Type": "text/plain;charset=utf-8"
         },
